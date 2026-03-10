@@ -53,7 +53,7 @@ func HandleGetRequest(response_writer http.ResponseWriter, request_info *http.Re
 	response_headers := request_info.Header
 	access_token := response_headers.Get("Authorization")
 
-	fmt.Println(access_token, ACCESS_TOKEN)
+	//	fmt.Println(access_token, ACCESS_TOKEN)
 
 	if access_token == ACCESS_TOKEN {
 		encoded_vals, _ := json.Marshal(item_values)
@@ -69,5 +69,4 @@ func HandleGetRequest(response_writer http.ResponseWriter, request_info *http.Re
 	}
 
 	response_writer.WriteHeader(http.StatusUnauthorized)
-
 }
