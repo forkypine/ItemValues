@@ -1,13 +1,15 @@
 package main
 
 import (
-	// "fmt"
+	//"fmt"
+	"encoding/json"
 	"log"
 	"net/http"
-
-	"encoding/json"
+	"os"
 	// "strings"
 )
+
+var ACCESS_TOKEN string = "e7b8c1f3-8c1d-4f3e-a1d2-2f9b5e8c1234"
 
 var item_values = map[string]int{
 	"angelperk":      900,
@@ -39,11 +41,20 @@ var item_values = map[string]int{
 func main() {
 	http.HandleFunc("/itemvalues", HandleGetRequest)
 
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func HandleGetRequest(response_writer http.ResponseWriter, _ *http.Request) {
-	encoded_vals, _ := json.Marshal(item_values)
-	response_writer.Write(encoded_vals)
+	response_headers := response_writer.Header()
+	access_token := response_headers.Get("Authorization")
+
+	if access_token == ACCESS_TOKEN {
+		encoded_vals, _ := json.Marshal(item_values)
+		response_writer.Write(encoded_vals)
+	}
 }
