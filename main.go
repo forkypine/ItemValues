@@ -1,8 +1,8 @@
 package main
 
 import (
-	//"fmt"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -49,12 +49,25 @@ func main() {
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
-func HandleGetRequest(response_writer http.ResponseWriter, _ *http.Request) {
-	response_headers := response_writer.Header()
+func HandleGetRequest(response_writer http.ResponseWriter, request_info *http.Request) {
+	response_headers := request_info.Header
 	access_token := response_headers.Get("Authorization")
+
+	fmt.Println(access_token, ACCESS_TOKEN)
 
 	if access_token == ACCESS_TOKEN {
 		encoded_vals, _ := json.Marshal(item_values)
-		response_writer.Write(encoded_vals)
+		_, err := response_writer.Write(encoded_vals)
+
+		if err != nil {
+			fmt.Println("Server Error:", err)
+
+			response_writer.WriteHeader(http.StatusInternalServerError)
+		}
+
+		return
 	}
+
+	response_writer.WriteHeader(http.StatusUnauthorized)
+
 }
