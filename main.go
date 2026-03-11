@@ -15,22 +15,60 @@ var item_values = map[string]int{
 	"angelperk":      900,
 	"truer6revolver": 10000,
 	"r6revolver":     5000,
-	"checkknife0":    10000,
+	//"checkknife0":    10000,
+
+	"truedragonslayer": 4000,
+	"voidstaff":        24750,
+	"sacrifice":        1450,
+	"rbmarble":         80,
+
+	"checkknife0":       883,
+	"sporkofdoom":       11000,
+	"lightningkarambit": 2400,
+	"rumbit":            2400,
+
+	"visible":               2400,
+	"soulscendo":            2500,
+	"voidscendo":            1250,
+	"skeletonknifeamethyst": 1200,
+
+	"skeletonkniferuby": 1200,
+	"realitybusty":      1200,
+	"epickatana":        1200,
+	"galaxyknife":       1200,
+
+	"alienknife":   1200,
+	"checkknife6":  224,
+	"banhammer":    36,
+	"karambitdark": 120,
+
+	"karambit":      120,
+	"checkknife5":   120,
+	"scissors":      80,
+	"horrormachete": 80,
+
+	"flowermachete":         80,
+	"skeletonknifeobsidian": 80,
+	"null":                  80,
+	"eruptionknife":         80,
+
+	"catknife":   80,
+	"chaosknife": 18,
 
 	"eyelander":  40000,
 	"hyperbeam:": 1500,
 	"rapidfire":  35000,
-	"soulscendo": 4000,
+	//"soulscendo": 4000,
 
 	"c4":          1249,
 	"awp2":        75000,
 	"tacticooler": 2000,
 	"bananbit":    12000,
 
-	"horrormachete": 125000,
-	"deflectperk":   150000,
-	"fakec4":        1249,
-	"tacticool":     300,
+	//"horrormachete": 125000,
+	"deflectperk": 150000,
+	"fakec4":      1249,
+	"tacticool":   300,
 
 	"bananagun":   30000,
 	"lostandsoul": 2000,
