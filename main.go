@@ -13,11 +13,16 @@ var ACCESS_TOKEN string = "e7b8c1f3-8c1d-4f3e-a1d2-2f9b5e8c1234"
 
 var item_values = map[string]int{
 	// Crates
-	"crateepic":    12,
-	"crateRrare":   5,
-	"craterare":    2,
-	"crateRcommon": 3,
-	"cratecommon":  1,
+	"crateepic":       12,
+	"crateRrare":      5,
+	"craterare":       2,
+	"crateRcommon":    3,
+	"cratecommon":     1,
+	"cratestock":      0,
+	"crateRstock":     0,
+	"crateRepic":      15,
+	"crateRlegendary": 20,
+	"crateRmythical":  35,
 
 	// Contrabands
 
@@ -149,20 +154,45 @@ var item_values = map[string]int{
 	"checkknife2": 14,
 	"checkknife":  7,
 
-	"hyperbeam:": 1500,
+	// "hyperbeam:": 1500,
 	//"soulscendo": 4000,
 
-	"c4":       1249,
-	"bananbit": 12000,
+	// "c4":       1249,
+	// "bananbit": 12000,
 
 	//"horrormachete": 125000,
-	"deflectperk": 150000,
-	"fakec4":      1249,
+	// "deflectperk": 150000,
+	// "fakec4":      1249,
 
 	// Commons
 
 	"desperado":          2,
 	"rosequartzrevolver": 1,
+
+	// MISC
+
+	"spamknife":   1200,
+	"customtesla": 360,
+	"custombeam":  240,
+	"customscope": 160,
+
+	"teslaknife":        68,
+	"shotgunknife":      30,
+	"mvppassvoucher_bm": 130,
+	"vippassvoucher_bm": 60,
+
+	"crateperi_bm":  120,
+	"crateprem_bm":  15,
+	"crateprem2_bm": 15,
+	"cratet1_bm":    6,
+
+	"hyperbeam":      60,
+	"deathbeam":      24,
+	"noscopeknife":   2,
+	"mvppassvoucher": 18,
+
+	"nametag":   18,
+	"cratet1_f": 1,
 }
 
 func main() {
@@ -180,7 +210,10 @@ func HandleGetRequest(response_writer http.ResponseWriter, request_info *http.Re
 	response_headers := request_info.Header
 	access_token := response_headers.Get("Authorization")
 
-	//	fmt.Println(access_token, ACCESS_TOKEN)
+	if request_info.Header.Get("Content-Type") != "application/json" {
+		response_writer.WriteHeader(http.StatusUnsupportedMediaType)
+		return
+	}
 
 	if access_token == ACCESS_TOKEN {
 		encoded_vals, _ := json.Marshal(item_values)
