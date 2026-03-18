@@ -23,11 +23,13 @@ var item_values = map[string]int{
 	"crateRepic":      15,
 	"crateRlegendary": 20,
 	"crateRmythical":  35,
+	"diamondhead": 1000000,
+	"angelperk": 1000000,
 
 	// Contrabands
 
-	"annihilator":       24750,
-	"hellsannihilator":  24750,
+	"annihilator":       16500,
+	"hellsannihilator":  16500,
 	"longshot":          120,
 	"tangledr6revolver": 14480,
 
@@ -36,8 +38,8 @@ var item_values = map[string]int{
 	"encodedr6revolver": 11000,
 
 	"truedragonslayer": 4000,
-	"voidstaff":        24750,
-	"sacrifice":        1450,
+	"voidstaff":        16500,
+	"sacrifice":        16500,
 	"rbmarble":         80,
 
 	"checkknife0": 883,
@@ -59,16 +61,16 @@ var item_values = map[string]int{
 
 	"neoawp": 1200,
 
-	"lightningkarambit": 2400,
-	"rumbit":            2400,
+	"lightningkarambit": 1800,
+	"rumbit":            1800,
 
-	"visible":               2400,
+	"visibleknife":          1800,
 	"soulscendo":            2500,
 	"voidscendo":            1250,
 	"skeletonknifeamethyst": 1200,
 
 	"skeletonkniferuby": 1200,
-	"realitybusty":      1200,
+	"realitybuster":      1200,
 	"epickatana":        1200,
 	"galaxyknife":       1200,
 
@@ -193,6 +195,7 @@ var item_values = map[string]int{
 
 	"nametag":   18,
 	"cratet1_f": 1,
+	"cheapkarambit": 5,
 }
 
 func main() {
